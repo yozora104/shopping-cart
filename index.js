@@ -7,9 +7,26 @@
  */
 export function calcularTotal(carrito) {
  var total=0;
+
  for (var i=0; i<carrito.length; i++){
-   total+=carrito[i].precio;   
+  if (carrito[i].cantidad){
+    total+=carrito[i].precio * carrito[i].cantidad;
+  } else{
+    total +=carrito[i].precio;
+  }  
  }
  return total;
+}
+
+export function calcularpeso(carrito){
+  var total=0;
+  for (var i=0; i<carrito.length; i++){
+    if (carrito[i].cantidad){
+      total+=carrito[i].peso * carrito[i].cantidad;
+    } else{
+      total+=carrito[i].peso;
+    }
+  }
+  return total;
 }
 
